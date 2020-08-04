@@ -28,45 +28,27 @@ V3 = namedtuple('Vertex3', ['x', 'y', 'z'])
 
 
 def sum(v0, v1):
-    """
-        Input: 2 size 3 vectors
-        Output: Size 3 vector with the per element sum
-    """
+   
     return V3(v0.x + v1.x, v0.y + v1.y, v0.z + v1.z)
 
 def sub(v0, v1):
-    """
-        Input: 2 size 3 vectors
-        Output: Size 3 vector with the per element substraction
-    """
+   
     return V3(v0.x - v1.x, v0.y - v1.y, v0.z - v1.z)
 
 def mul(v0, k):
-    """
-        Input: 2 size 3 vectors
-        Output: Size 3 vector with the per element multiplication
-    """
+   
     return V3(v0.x * k, v0.y * k, v0.z *k)
 
 def dot(v0, v1):
-    """
-        Input: 2 size 3 vectors
-        Output: Scalar with the dot product
-    """
+   
     return v0.x * v1.x + v0.y * v1.y + v0.z * v1.z
 
 def length(v0):
-    """
-        Input: 1 size 3 vector
-        Output: Scalar with the length of the vector
-    """  
+    
     return (v0.x**2 + v0.y**2 + v0.z**2)**0.5
 
 def norm(v0):
-    """
-        Input: 1 size 3 vector
-        Output: Size 3 vector with the normal of the vector
-    """  
+   
     v0length = length(v0)
 
     if not v0length:
@@ -325,6 +307,8 @@ class Render(object):
                 b = V3(x2, y2, z2)
                 c = V3(x3, y3, z3)
                 d = V3(x4, y4, z4)
+
+                normal = cross(sub(b, a), sub(c, a))
 
                 intensity = dot(norm(normal), norm(light))
                 grey = round(255 * intensity)

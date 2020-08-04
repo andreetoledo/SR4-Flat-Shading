@@ -7,6 +7,6 @@ from gl import color
 
 render = Render()
 
-render.load('./sonic.obj', translate=(375, 25, 0), scale = (24, 24, 100))
+render.load('cuerpo.obj', translate=(550, 50, 0), scale = (36, 36, 100))
 
 render.glFinish(filename='output.bmp')
